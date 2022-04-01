@@ -1,2 +1,0 @@
-# DockerPractice
-SPBSTU practice
