@@ -10,12 +10,13 @@ period = int(environ['MQTT_PERIOD'] if 'MQTT_PERIOD' in environ.keys() else 1)
 
 # ________________________________
 
+input_coefficient = int(environ['COEFFICIENT'] if 'COEFFICIENT' in environ.keys() else 1)
 input_type = environ['TYPE'] if 'TYPE' in environ.keys() else 'temperature'
 name = environ['NAME'] if 'NAME' in environ.keys() else 'sensor1'
 
 sensors = {"temperature": Temperature, "current": Current, "pressure": Pressure, "voltage": Voltage}
 
-sensor = sensors[input_type](name=name)
+sensor = sensors[input_type](name=name, coefficient=input_coefficient)
 
 def on_publish(client, userdata, result):
     print(f"Data published: {userdata}")
