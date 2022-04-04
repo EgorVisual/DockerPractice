@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  temp_sensor:
+    image: egordockerhub/dockerpractise:sensors_v2
+    environment:
+      - MQTT_HOST=192.168.1.106
+      - MQTT_PERIOD=5
+      - TYPE=temperature
+      - NAME=TempSensor0
+      - COEFFICIENT=1
+  pressure_sensor:
+    image: egordockerhub/dockerpractise:sensors_v2
+    environment:
+      - MQTT_HOST=192.168.1.106
+      - MQTT_PERIOD=5
+      - TYPE=pressure
+      - NAME=PressureSensor0
+      - COEFFICIENT=3
+  current_sensor1:
+    image: egordockerhub/dockerpractise:sensors_v2
+    environment:
+      - MQTT_HOST=192.168.1.106
+      - MQTT_PERIOD=7
+      - TYPE=current
+      - NAME=CurrentSensor0
+      - COEFFICIENT=5
+  current_sensor2:
+    image: egordockerhub/dockerpractise:sensors_v2
+    environment:
+      - MQTT_HOST=192.168.1.106
+      - MQTT_PERIOD=4
+      - TYPE=current
+      - NAME=CurrentSensor1
+      - COEFFICIENT=1
+  voltage_sensor1:
+    image: egordockerhub/dockerpractise:sensors_v2
+    environment:
+      - MQTT_HOST=192.168.1.106
+      - MQTT_PERIOD=5
+      - TYPE=voltage
+      - NAME=VoltageSensor0
+      - COEFFICIENT=11
+  voltage_sensor2:
+    image: egordockerhub/dockerpractise:sensors_v2
+    environment:
+      - MQTT_HOST=192.168.1.106
+      - MQTT_PERIOD=10
+      - TYPE=voltage
+      - NAME=VoltageSensor1
+      - COEFFICIENT=1
